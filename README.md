@@ -13,14 +13,14 @@ A simple and reusable Vue 3 component that greets the user. This component uses 
 You can install this component via npm:
 
 ```bash
-npm install hello-vue-component
+npm install @medelm/hello-vue-component
 ```
 
 ## Usage
 
 First, import and register the component in your Vue application:
 
-```bash
+```javascript
 // main.js or main.ts
 import { createApp } from 'vue';
 import App from './App.vue';
@@ -33,10 +33,11 @@ app.mount('#app');
 
 Then, use the component in your template:
 
-```bash
+```html
 <template>
   <div id="app">
     <Hello name="Vue Developer" @clicked="handleClick" />
+    <p>Total Clicks: {{ clickCount }}</p>
   </div>
 </template>
 
@@ -47,26 +48,43 @@ const clickCount = ref(0);
 
 const handleClick = (count) => {
   clickCount.value = count;
-  console.log(`Button clicked ${count} times`);
+  console.log(\`Button clicked \${count} times\`);
 }
 </script>
 ```
 
 ## Props
 
+The component accepts the following props:
+
+- `name` (String, required): The name to be displayed in the greeting.
+- `greeting` (String, optional, default: 'Hello'): The greeting message.
+
 ## Emits
+
+The component emits the following events:
+
+- `clicked` (number): Emitted every time the button is clicked, passing the current click count as an argument.
 
 ## Example
 
-```bash
+Here's an example of how to use the component:
+
+```html
 <template>
   <div>
     <Hello name="World" greeting="Hi" @clicked="onClicked" />
+    <p>Total Clicks: {{ clickCount }}</p>
   </div>
 </template>
 
 <script setup>
+import { ref } from 'vue';
+
+const clickCount = ref(0);
+
 const onClicked = (count) => {
+  clickCount.value = count;
   console.log(`Button clicked ${count} times`);
 }
 </script>
@@ -74,9 +92,8 @@ const onClicked = (count) => {
 
 ## Styling
 
-The component comes with scoped styles, so it will not affect other parts of your application.
+The component comes with scoped styles, so it will not affect other parts of your application. The styles can be customized by modifying the component's scoped CSS.
 
 ## License
 
 MIT
-
