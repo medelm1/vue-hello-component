@@ -48,7 +48,7 @@ const clickCount = ref(0);
 
 const handleClick = (count) => {
   clickCount.value = count;
-  console.log(\`Button clicked \${count} times\`);
+  console.log(`Button clicked ${count} times`);
 }
 </script>
 ```
