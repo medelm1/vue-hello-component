@@ -13,7 +13,7 @@ A simple and reusable Vue 3 component that greets the user. This component uses 
 You can install this component via npm:
 
 ```bash
-npm install @medelm/hello-vue-component
+npm install @medelm/vue-hello-component
 ```
 
 ## Usage
